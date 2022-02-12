@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block container %}
+<section id="edit-profile-page" class="edit">
+            <form id="edit-form" action="#" method="post">
+                <fieldset>
+                    {% csrf_token %}
+                    <legend>Delete Profile</legend>
+                    {{ form }}
+                    <input class="button submit" type="submit" value="Delete">
+                </fieldset>
+            </form>
+        </section>
+{% endblock %}
