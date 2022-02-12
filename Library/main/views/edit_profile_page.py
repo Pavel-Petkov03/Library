@@ -7,7 +7,7 @@ from Library.main.models import Profile
 
 class EditProfileView(View):
     def get(self, req):
-        return render(req, "edit-book.html", {
+        return render(req, "edit-profile.html", {
             "form": CreateProfileForm(instance=Profile.objects.first())
         })
 
@@ -16,6 +16,6 @@ class EditProfileView(View):
         if form.is_valid():
             form.save()
             return redirect("/")
-        return render(req, "edit-book.html", {
+        return render(req, "edit-profile.html", {
             "form": form
         })
