@@ -1,10 +1,12 @@
 {% extends "base.html" %}
+{% load split_into_three %}
 {% block container %}
     <section id="dashboard-page" class="dashboard">
         <h1>Dashboard</h1>
         {% if books %}
+            {% for section in books|split_by_three %}
                 <ul class="my-books-list">
-                {% for book in books %}
+                {% for book in section %}
                     <li class="myBooks">
                             <h3>{{ book.title }}</h3>
                             <p>{{ book.type }}</p>
@@ -13,6 +15,7 @@
                         </li>
                 {% endfor %}
                 </ul>
+            {% endfor %}
         {% else %}
              <p class="no-books">No books in database!</p>
         {% endif %}
